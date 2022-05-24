@@ -52,10 +52,11 @@ class ProductDetailViewModel extends BaseViewModel{
           _cart[index].totalprice = _cart[index].price! * _cart[index].itemcount!;
           dbService.isProductInCart = true;
           dbService.totalitems= _cart.length;
-          index ++;
+          countTotalPrice();
           Get.back(result: dbService.totalitems);
           return;
         }
+        index ++;
       }
     }
     _cart.add(product);

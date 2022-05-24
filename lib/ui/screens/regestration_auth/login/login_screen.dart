@@ -25,6 +25,7 @@ class LoginScreen extends StatelessWidget {
       child: Consumer<LoginViewModel>(
         builder: (context,model,child){
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: backgroundColor,
           body: Stack(
             fit: StackFit.loose,
@@ -67,6 +68,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 290, 30, 10),
                 child: Form(
@@ -83,7 +85,8 @@ class LoginScreen extends StatelessWidget {
                       InputTextFormField(
                           hintText: Strings().hintfullname,
                           controller: TextEditingController(text: model.user.name),
-                          obsecuretext: false,validator: (String value){
+                          obsecuretext: false,
+                          validator: (String value){
                             if (value == null||value.length < 1) {
                               return "Please enter full name";
                             }  else
@@ -110,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                           prefixIcon: const Icon(Icons.lock,size: 18,color: mainColor,)),
                       const SizedBox(height: 10,),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Row(
                             children: [

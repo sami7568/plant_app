@@ -14,6 +14,7 @@ class LoginViewModel extends BaseViewModel{
   final authSerice =locator<AuthResult>();
 
   bool checkremeber = false;
+
   AppUser user = AppUser();
 
   setCheckboxValue(bool value){
