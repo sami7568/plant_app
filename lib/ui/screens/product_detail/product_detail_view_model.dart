@@ -48,6 +48,7 @@ class ProductDetailViewModel extends BaseViewModel{
       int index = 0;
       for (var element in _cart) {
         if (element.subTitle == product.subTitle) {
+
           _cart[index].itemcount = _cart[index].itemcount! + element.itemcount!;
           _cart[index].totalprice = _cart[index].price! * _cart[index].itemcount!;
           dbService.isProductInCart = true;
@@ -59,7 +60,10 @@ class ProductDetailViewModel extends BaseViewModel{
         index ++;
       }
     }
+
+    ///
     _cart.add(product);
+
     dbService.isProductInCart = true;
     dbService.totalitems= _cart.length;
     countTotalPrice();
